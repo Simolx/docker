@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>yarn.timeline-service.hostname</name>
+    <value>timelineserver-hl-22.l5003.svc</value>
+  </property>
+  <property>
+    <name>yarn.timeline-service.address</name>
+    <value>timelineserver-hl-22.l5003.svc:10020</value>
+  </property>
+  <property>
+    <name>yarn.timeline-service.webapp.address</name>
+    <value>timelineserver-hl-22.l5003.svc:19888</value>
+  </property>
+  <property>
+    <name>yarn.timeline-service.webapp.https.address</name>
+    <value>timelineserver-hl-22.l5003.svc:8190</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.address</name>
+    <value>miner55:8032</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>miner55:8030</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address</name>
+    <value>miner55:8031</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.webapp.address</name>
+    <value>miner55:8088</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.admin.address</name>
+    <value>miner55:8033</value>
+  </property>
+  <property>
+    <name>yarn.log.server.url</name>
+    <value>http://:</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+  </property>
+
+  <property>
+    <name>hadoop.proxyuser.root.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.root.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>yarn.application.classpath</name>
+     <value>${HADOOP_CONF_DIR},/usr/lib/hadoop/*,/usr/lib/hadoop/lib/*,/usr/lib/hadoop-hdfs/*,/usr/lib/hadoop-hdfs/lib/*,/usr/lib/hadoop-mapreduce/*,/usr/lib/hadoop-mapreduce/lib/*,/usr/lib/hadoop-yarn/*,/usr/lib/hadoop-yarn/lib/*</value>
+  </property>
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.address</name>
+    <value>0.0.0.0:8041</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>${TRANSWARP_DIR}/data/local</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.log-dirs</name>
+    <value>${LOGDIR}</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.pmem-check-enabled</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.remote-app-log-dir</name>
+    <value>/user/yarn/var/log/hadoop-yarn/apps</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.resource.cpu-vcores</name>
+    <value>${NODEMANAGER_RESOURCE_CPU_VCORES}</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>${NODEMANAGER_RESOURCE_MEMORY_MB}</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.vmem-check-enabled</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.maximum-allocation-mb</name>
+    <value>98304</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.maximum-allocation-vcores</name>
+    <value>96</value>
+  </property>
+ <property>
+     <name>yarn.nodemanager.delete.debug-delay-sec</name>
+      <value>86400</value>
+   </property>
+<!-- ResourceManager security configs -->
+   <property>
+     <name>yarn.resourcemanager.keytab</name>
+     <value>/etc/keytabs/yarn.keytab</value>
+   </property>
+   <property>
+     <name>yarn.resourcemanager.principal</name>
+     <value>yarn/_HOST@${KRB_REALM}</value>
+   </property>
+  <!-- NodeManager security configs -->
+  <property>
+    <name>yarn.nodemanager.keytab</name>
+    <value>/etc/keytabs/yarn.keytab</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.principal</name>
+    <value>yarn/_HOST@${KRB_REALM}</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.container-executor.class</name>
+    <value>org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor</value>
+  </property>
+  <property>
+    <name>yarn.nodemanager.linux-container-executor.group</name>
+    <value>yarn</value> 
+  </property>
+  <!-- Yarn Timeline Server security configs -->
+  <property>
+    <name>yarn.timeline-service.principal</name>
+    <value>yarn/_HOST@${KRB_REALM}</value>
+  </property>
+  <property>
+    <name>yarn.timeline-service.keytab</name>
+    <value>/etc/keytabs/yarn.keytab</value> <!-- path to the MAPRED keytab for the Job History Server -->
+  </property>
+</configuration>
