@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<configuration>
+  <srcPath prefix="/raidTest" >
+    <policy name = "BlockPlacementPolicyRaid">
+      <erasureCode>cauchy</erasureCode>
+      <property>
+        <name>metaReplication</name>
+        <value>1</value>
+      </property>
+      <property>
+        <name>modTimePeriod</name>
+        <value>30000</value>
+      </property>
+      <property>
+        <name>srcReplication</name>
+        <value>3</value>
+      </property>
+      <property>
+        <name>targetReplication</name>
+        <value>1</value>
+      </property>
+    </policy>
+  </srcPath>
+</configuration>
