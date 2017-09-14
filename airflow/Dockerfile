@@ -29,6 +29,7 @@ ENV AIRFLOW_HOME /opt/airflow
 ENV AIRFLOW_VERSION 1.8.2
 VOLUME [ "/etc/supervisord", "$AIRFLOW_HOME/dags", "/opt/baitu" ]
 RUN mkdir -p /var/log/airflow /etc/supervisord /opt/baitu
+RUN pip install /opt/incubator-airflow-1.8.2.tar.gz[all_dbs,async,celery,crypto,datadog,devel_hadoop,docker,druid,emr,gcp_api,jdbc,ldap,qds,rabbitmq,salesforce,samba,statsd] supervisor suds kafka-python pyhive[hive,sqlalchemy,presto] thrift
 RUN pip install --upgrade pip && pip install airflow[all_dbs,async,celery,crypto,datadog,devel_hadoop,docker,druid,emr,gcp_api,jdbc,ldap,qds,rabbitmq,salesforce,samba,statsd]=${AIRFLOW_VERSION} supervisor suds kafka-python pyhive[hive,sqlalchemy,presto] thrift
 RUN tar -czvf /opt/hbase-1.0.0.tar.gz -C  /opt hbase-1.0.0 && pip install /opt/hbase-1.0.0.tar.gz && rm -f /opt/hbase-1.0.0.tar.gz
 RUN rm -rf /var/lib/apt/lists/*
