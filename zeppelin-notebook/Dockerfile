@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 MAINTAINER lx,simolx@163.com
-apt install -y install software-properties-common
 ENV TZ Asia/Shanghai
 RUN /bin/cp -f /usr/share/zoneinfo/$TZ /etc/localtime
 RUN apt update && \
