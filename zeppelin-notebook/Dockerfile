@@ -18,7 +18,7 @@ RUN curl -O -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" ht
     cp /opt/zeppelin-0.7.3-bin-all/conf/zeppelin-env.sh.template /opt/zeppelin-0.7.3-bin-all/conf/zeppelin-env.sh && \
     cp /opt/zeppelin-0.7.3-bin-all/conf/zeppelin-site.xml.template /opt/zeppelin-0.7.3-bin-all/conf/zeppelin-site.xml
 ENV JAVA_HOME=/opt/jdk1.8.0_144 \
-    PATH=/opt/anaconda3/opt:$JAVA_HOME/bin:$PATH \
+    PATH=/opt/anaconda3/bin:$JAVA_HOME/bin:$PATH \
     LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
 RUN conda update -y conda && \
