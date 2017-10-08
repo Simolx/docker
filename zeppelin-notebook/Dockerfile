@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER lx,simolx@163.com
 ENV TZ Asia/Shanghai
-RUN /bin/cp -f /usr/share/zoneinfo/$TZ /etc/localtime
+# RUN /bin/cp -f /usr/share/zoneinfo/$TZ /etc/localtime
 RUN apt update && \
     apt upgrade -y && \
     apt install -y curl unzip && \
