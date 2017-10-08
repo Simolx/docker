@@ -4,7 +4,7 @@ ENV TZ Asia/Shanghai
 # RUN /bin/cp -f /usr/share/zoneinfo/$TZ /etc/localtime
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y curl unzip && \
+    apt install -y curl unzip bzip2 && \
     rm -rf /var/lib/apt/lists/*
 RUN curl -O -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz && \
     tar -xzf jdk-8u144-linux-x64.tar.gz -C /opt && \
