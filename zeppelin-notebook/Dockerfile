@@ -24,7 +24,7 @@ ENV JAVA_HOME=/opt/jdk1.8.0_144 \
 RUN conda update -y conda && \
     conda update -y anaconda && \
     conda update -y --all && \
-    python -m nltk.downloader all
+    python -m nltk.downloader all -d /opt/nltk_data
 VOLUME ["/opt/zeppelin-0.7.3-bin-all/notebook"]
 EXPOSE 8080
 CMD ["/opt/zeppelin-0.7.3-bin-all/bin/zeppelin.sh"]
