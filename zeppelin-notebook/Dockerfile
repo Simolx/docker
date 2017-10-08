@@ -6,7 +6,7 @@ RUN apt update && \
     apt upgrade -y && \
     apt install -y curl unzip && \
     rm -rf /var/lib/apt/lists/*
-RUN curl --insecure --junk-session-cookies --location --remote-name -slient --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz && \
+RUN curl -O -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz && \
     tar -xzf jdk-8u144-linux-x64.tar.gz -C /opt && \
     rm -f jdk-8u144-linux-x64.tar.gz && \
     curl -O https://repo.continuum.io/archive/Anaconda3-5.0.0.1-Linux-x86_64.sh && \
